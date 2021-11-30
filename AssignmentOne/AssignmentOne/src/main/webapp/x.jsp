@@ -7,6 +7,7 @@
 <title>X</title>
 </head>
 <body>
+<%@ include file = "header.jsp" %>
 
 <h3> X page </h3>
 

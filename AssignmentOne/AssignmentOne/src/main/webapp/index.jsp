@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@ include file = "header.jsp" %>
+
 <h1>Index</h1>
 
 <form action="x.jsp" >
@@ -28,6 +30,8 @@
 
 
 Current Time: <%= java.util.Calendar.getInstance().getTime() %>
+
+<%@ include file = "footer.jsp" %>
 
 </body>
 </html>
