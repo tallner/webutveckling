@@ -4,15 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>X</title>
+<title>Y</title>
 </head>
 <body>
 <%@ include file = "header.jsp" %>
 
-<h3> X page </h3>
+<h3> Y page </h3>
 
 <%
 String name=request.getParameter("fname");  
+
 out.print("welcome "+name); 
 String UserRoll=request.getParameter("userRoll");  
 out.print("You are signed in as "+UserRoll); 

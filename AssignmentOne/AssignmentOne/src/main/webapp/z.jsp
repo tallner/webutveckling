@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>X</title>
+<title>Z</title>
 </head>
 <body>
 <%@ include file = "header.jsp" %>
 
-<h3> X page </h3>
+<h3> Z page </h3>
 
 <%
 String name=request.getParameter("fname");  
