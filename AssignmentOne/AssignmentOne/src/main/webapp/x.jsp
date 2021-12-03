@@ -16,7 +16,10 @@ String name=request.getParameter("fname");
 out.print("welcome "+name); 
 String UserRoll=request.getParameter("userRoll");  
 out.print("You are signed in as "+UserRoll); 
+
+ 
 %>
+
 <%@ include file = "footer.jsp" %>
 </body>
 </html>
