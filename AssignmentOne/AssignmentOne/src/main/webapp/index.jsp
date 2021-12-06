@@ -27,11 +27,8 @@
 <%! String colorTheme; %>
 
 <%
-
-
 colorTheme = request.getParameter("Theme");
 out.print(colorTheme);
-
 %>
 
 <body class=<%= colorTheme %>>
@@ -42,7 +39,7 @@ out.print(colorTheme);
 <h1>Index</h1>
 
 <!-- <form action="x.jsp"> -->
-<form>
+<form method="get">
 	Name: <input type="text" name="fname">
   	<select name="userRoll" >
 		<option value="regular user">Operator</option>
@@ -52,6 +49,8 @@ out.print(colorTheme);
 	<input type="submit" value="Enter">
 </form>
 
+<br>
+<br>
 
 <p>Select theme:</p>
 <form action="index.jsp">
@@ -64,13 +63,14 @@ out.print(colorTheme);
   <input type="submit" name="submit" value="submit">
 </form> 
 
+<br>
+<br>
 
-<%
+<% //
 
 	String userName = request.getParameter("fname") == null ? "defaultUser" : request.getParameter("fname");
 	String userRoll = request.getParameter("userRoll") == null ? "operator" : request.getParameter("userRoll");
 	
-
 	
 	switch (userRoll) {
 	case "regular user":  response.sendRedirect("x.jsp?fname="+userName+"&userRoll="+userRoll); 
@@ -83,6 +83,20 @@ out.print(colorTheme);
 	}  
 %>
 
+<br>
+<br>
+
+<% 
+	if (request.getCookies()!=null){
+Cookie[] cookies = request.getCookies();
+
+    String cookiesReceived = cookies[0].getValue().toString();
+
+    out.print("Info from cookie page: " + cookiesReceived);
+	}
+%>
+
+<br>
 
 Current Time: <%= java.util.Calendar.getInstance().getTime() %>
 

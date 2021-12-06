@@ -11,12 +11,23 @@
 
 <h3> Z page </h3>
 
+<br>
 <%
 String name=request.getParameter("fname");  
-out.print("welcome "+name); 
+out.print("welcome "+name);
+%>
+<br>
+<%
 String UserRoll=request.getParameter("userRoll");  
 out.print("You are signed in as "+UserRoll); 
 %>
+<br>
+<br>
+
+<jsp:forward page="cookies.jsp"></jsp:forward>
+
+
+
 <%@ include file = "footer.jsp" %>
 </body>
 </html>
