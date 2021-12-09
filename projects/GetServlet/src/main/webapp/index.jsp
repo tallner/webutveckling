@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
 	<div>
 		<form action="get" method="get">
 			Name with GET: <input name="fname" type="text"> 
