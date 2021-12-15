@@ -33,7 +33,7 @@ public class UserController extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException {		
 		doPost(request, response);
 	}
 
@@ -45,40 +45,32 @@ public class UserController extends HttpServlet {
 			throws ServletException, IOException {
 		// Session is a part of the request
 		// Session is created when the user visits the website
-		HttpSession session = request.getSession();
 
+		HttpSession session = request.getSession();//Maybe this should be done only if pw correct, now a session is created everytime this servlet is called
+		RequestDispatcher rd = request.getRequestDispatcher("loginpage.jsp");
+		UserBean userBean = new UserBean();
 		String pword = request.getParameter("pword");
 		String uname = request.getParameter("uname");
-
-//		String userpage = "";
-//		//what page to redirect to
-//		if ((uname.equals("cat")) && (pword.equals("cat"))) userpage = "cat.jsp";
-//		else if ((uname.equals("dog")) && (pword.equals("dog"))) userpage = "dog.jsp";
-//		else if ((uname.equals("swallow"))	&& (pword.equals("swallow"))) userpage = "swallow.png";
-//		else userpage = "index.jsp";
-
-		// add selected value to the model/bean
-		UserBean userBean = new UserBean(); // create a new instance of the image model
-		userBean.setUser(uname); // set the user-selected value to the bean
-
-		request.setAttribute("userbean", userBean);// används olika attribut för olika requests?
-
-		// @CT sätter man timeout här eller i resultatsidan?
-		// session.setMaxInactiveInterval(600);
-		// session timeout in sec
-
-		// name add data into the session
-		// @CT finns nån anledning att använda uname istället för "mySession" som
-		// attributnamn?
-		session.setAttribute("mySession", "This is " + uname + " session");
-
-		// send it all to the next page
-		// skillnad mot sendRedirect förutom att browsern är inblandad i sendRedirect?
-		// sendDirect innehåller all info i URL och här lägger man det i request?
-		RequestDispatcher rd = request.getRequestDispatcher("loginpage.jsp");
+		
+		// check if session already exists		
+		if (request.getSession().getAttribute("mySession") != null) 
+			userBean = (UserBean) request.getSession().getAttribute("mySession");
+		else if (pwCheck(uname, pword)) {
+			userBean.setUser(uname);
+			session.setAttribute("mySession", userBean);
+		}
+		
 		rd.forward(request, response);
-		// hur byggs URL upp med denna? hur hänger det ihop?
-
+	}
+	
+	protected boolean pwCheck(String uname, String pword) {
+		//password validation
+		return
+				(uname.equals("cat") && (pword.equals("cat"))) ||
+				(uname.equals("dog") && (pword.equals("dog"))) ||
+				(uname.equals("swallow") && (pword.equals("swallow")))
+			;
+		
 	}
 
 }
