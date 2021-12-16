@@ -37,7 +37,7 @@ public class UserInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("loginpage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("userpage.jsp");
 		UserBean userBean = new UserBean();
 		
 		//get user information from session

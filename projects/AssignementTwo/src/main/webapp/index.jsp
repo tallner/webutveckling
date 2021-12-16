@@ -20,7 +20,7 @@
 <body>
 
 	<div>
-		<form action="<%=request.getContextPath()%>/UserController" method="post">
+		<form action="<%=request.getContextPath()%>/SessionController" method="post">
 			Enter name: <input name="uname" type="text" required>
 			<br>
 			Enter password: <input name="pword" type="password" required> 

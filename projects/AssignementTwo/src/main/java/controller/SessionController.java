@@ -16,14 +16,14 @@ import model.UserBean;
 /**
  * Servlet implementation class UserController
  */
-@WebServlet("/UserController")
-public class UserController extends HttpServlet {
+@WebServlet("/SessionController")
+public class SessionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public UserController() {
+	public SessionController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -47,7 +47,7 @@ public class UserController extends HttpServlet {
 		// Session is created when the user visits the website
 
 		HttpSession session = request.getSession();//Maybe this should be done only if pw correct, now a session is created everytime this servlet is called
-		RequestDispatcher rd = request.getRequestDispatcher("loginpage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("userpage.jsp");
 		UserBean userBean = new UserBean();
 		String pword = request.getParameter("pword");
 		String uname = request.getParameter("uname");

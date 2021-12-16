@@ -3,20 +3,18 @@ package model;
 public class UserBean {
 	
 	private String user;
-	private String userInput;
+
 
 	public String getUser() {
 		return user;
 	}
 
-	public void setUser(String show) {
-		this.user = show;
+	public void setUser(String user) {
+		this.user = user;
 	}
 	
 	public String getImgName() {
-
 		return UserHandler.getUserImg(user);
-		
 	}
 
 	public String getUserInput(String user) {

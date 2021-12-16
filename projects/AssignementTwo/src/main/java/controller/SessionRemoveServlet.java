@@ -31,7 +31,7 @@ public class SessionRemoveServlet extends HttpServlet {
 		// Get the session
 		HttpSession session = request.getSession();
 
-		// remove the user
+		// remove the user session
 		session.removeAttribute("mySession");
 		// turn off the session
 		session.invalidate();
