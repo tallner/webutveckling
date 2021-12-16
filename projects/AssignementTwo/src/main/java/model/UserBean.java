@@ -14,15 +14,15 @@ public class UserBean {
 	}
 	
 	public String getImgName() {
-		return UserHandler.getUserImg(user);
+		return UserInfo.getUserImg(user);
 	}
 
 	public String getUserInput(String user) {
-		return UserHandler.getUserInfo(user);
+		return UserInfo.getUserInfo(user);
 	}
 
 	public void setUserInput(String user, String userInput) {
-		UserHandler.setUserInfo(user, userInput);
+		UserInfo.setUserInfo(user, userInput);
 	}
 
 }

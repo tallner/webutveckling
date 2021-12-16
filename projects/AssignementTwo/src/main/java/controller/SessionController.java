@@ -43,10 +43,9 @@ public class SessionController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Session is a part of the request
-		// Session is created when the user visits the website
-
-		HttpSession session = request.getSession();//Maybe this should be done only if pw correct, now a session is created everytime this servlet is called
+		
+		//Maybe getSession() should be done only if pw correct, now a session is created everytime this servlet is called
+		HttpSession session = request.getSession();
 		RequestDispatcher rd = request.getRequestDispatcher("userpage.jsp");
 		UserBean userBean = new UserBean();
 		String pword = request.getParameter("pword");
@@ -55,6 +54,7 @@ public class SessionController extends HttpServlet {
 		// check if session already exists		
 		if (request.getSession().getAttribute("mySession") != null) 
 			userBean = (UserBean) request.getSession().getAttribute("mySession");
+		// if no session, check password
 		else if (pwCheck(uname, pword)) {
 			userBean.setUser(uname);
 			session.setAttribute("mySession", userBean);

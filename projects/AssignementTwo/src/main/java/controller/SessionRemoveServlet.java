@@ -39,12 +39,5 @@ public class SessionRemoveServlet extends HttpServlet {
 		response.sendRedirect("index.jsp");
 
 	}
-	
-	
-	//add Get handlers to catch direct path
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doPost(request, response);
-	}
 
 }
