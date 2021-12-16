@@ -43,7 +43,6 @@ public class UserInfoServlet extends HttpServlet {
 		if ((request.getParameter("food") != null) && (request.getParameter("food") != ""))
 		{
 			userBean.setUserInput(user,request.getParameter("food"));
-			System.out.println(userBean.getUserInput(user));
 		}
 		
 		rd.forward(request, response);
