@@ -40,7 +40,7 @@ public class OpenWeatherServlet extends HttpServlet {
 				
 		request.setAttribute("wbean", wb);
 
-		RequestDispatcher rd = request.getRequestDispatcher("weatherPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("userWeatherPage.jsp");
 		rd.forward(request, response);
 	}
 

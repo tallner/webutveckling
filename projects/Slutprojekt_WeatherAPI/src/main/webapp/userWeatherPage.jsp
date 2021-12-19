@@ -20,5 +20,31 @@ out.print("The weather " + test.getCityStr() + " is now a " + test.getClouds());
 
 %>
 
+
+	<header>
+		<%@ include file="header.jsp"%>
+	</header>
+
+	<div class="search-location">
+	<%@ include file="WEB-INF/weatherForm.html"%>
+	</div>
+
+	<div class="last-locations">
+		
+
+		<ul>			
+			<li><a href=""> Temp1 </a></li>
+			<br>
+			<li><a href=""> Temp2 </a></li><br>
+			<li><a href=""> Temp3 </a></li><br>
+			<li><a href=""> Temp4 </a></li><br>
+			<li><a href=""> Temp5 </a></li><br>
+			</ul>
+	</div>
+
+	<footer>
+		<%@ include file="footer.jsp"%>
+	</footer>
+
 </body>
 </html>

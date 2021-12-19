@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<header>testFoot</header>
+<footer>This is the footer in my ultimate weather fetcher</footer>
 
 </body>
 </html>
