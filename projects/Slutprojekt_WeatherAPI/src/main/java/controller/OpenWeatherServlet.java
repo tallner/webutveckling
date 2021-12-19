@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.apihandler;
+import model.WeatherDataParser;
 import model.weatherbean;
 
 /**
  * Servlet implementation class apiservlet
  */
-@WebServlet("/apiservlet")
-public class apiservlet extends HttpServlet {
+@WebServlet("/OpenWeatherServlet")
+public class OpenWeatherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public apiservlet() {
+    public OpenWeatherServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,20 +34,13 @@ public class apiservlet extends HttpServlet {
 
 		String cityStr = request.getParameter("city");
 		String countryStr = request.getParameter("country");
-		
 		weatherbean wb = new weatherbean(cityStr, countryStr);
 		
-		apihandler.getapi(wb);
-		
-		//		//apihandler.getapi();
-//		String joke = apihandler.getapi();
-//		//System.out.println(joke);
-//		
+		WeatherDataParser.getWeather(wb);
+				
 		request.setAttribute("wbean", wb);
-//		
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
+
+		RequestDispatcher rd = request.getRequestDispatcher("weatherPage.jsp");
 		rd.forward(request, response);
 	}
 

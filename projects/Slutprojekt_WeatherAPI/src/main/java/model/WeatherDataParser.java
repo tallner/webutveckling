@@ -16,9 +16,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-public class apihandler {
+public class WeatherDataParser {
 	
-	public static String getapi(weatherbean wb) throws IOException{
+	public static String getWeather(weatherbean wb) throws IOException{
 		
 		String URLtosend = 
 						"https://api.openweathermap.org/data/2.5/weather?q="+ 

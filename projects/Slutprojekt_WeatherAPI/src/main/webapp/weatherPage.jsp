@@ -7,14 +7,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Weather</title>
 </head>
 <body>
 
 <%
 
 weatherbean test = (weatherbean) request.getAttribute("wbean") ;
-
 
 out.print("The weather " + test.getCityStr() + " is now a " + test.getClouds());
 

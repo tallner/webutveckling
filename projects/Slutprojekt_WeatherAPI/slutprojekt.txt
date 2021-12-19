@@ -12,6 +12,13 @@ Krav
 
 
 
+Extra
+- Responsive
+- Users with login
+- Save users in file/database
+- Save users favorite cities
+
+
 
 API
 - Firebase databas
