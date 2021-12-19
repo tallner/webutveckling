@@ -4,30 +4,37 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 <title>Weather location selector</title>
 </head>
 <body>
 
-	<form action="OpenWeatherServlet" method="get">
-		City:<input type="text" name="city" /><br /> Country (Language code):<input
-			type="text" name="country" /><br /> <input type="submit" value="go" />
+		<header>
+			<%@ include file="header.jsp"%>
+		</header>
+
+	<form class="select-city" action="OpenWeatherServlet" method="get">
+		City:<input class="select-city" type="text" name="city" />
+		<br /> 
+		Country (Language code):<input class="select-city"  type="text" name="country" />
+		<br /> 
+		<input class="select-city" type="submit" value="go" />
 	</form>
 
 
 	<div class="links">
-		<header>
-			<%@ include file="header.jsp"%>
-		</header>
+		
 
 		<nav>
 			<a href="OpenWeatherServlet"> Get me a joke </a>
 		</nav>
 
+
+	</div>
+	
 		<footer>
 			<%@ include file="footer.jsp"%>
 		</footer>
-	</div>
 
 
 </body>
