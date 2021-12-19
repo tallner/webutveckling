@@ -18,16 +18,12 @@ import org.xml.sax.InputSource;
 
 public class apihandler {
 	
-//	public static String URL = "https://v2.jokeapi.dev/joke/Programming,Dark?format=xml";
-//	public static String URL =  "https://api.openweathermap.org/data/2.5/weather?q=london,uk&appid=35ec794bb2d83a735fb4edfd249390a7&mode=xml";
-	
 	public static String getapi(weatherbean wb) throws IOException{
 		
 		String URLtosend = 
-						"\"https://api.openweathermap.org/data/2.5/weather?q="+ 
+						"https://api.openweathermap.org/data/2.5/weather?q="+ 
 						wb.getCityStr() + ","+ wb.getCountryStr() +
-						"&appid=35ec794bb2d83a735fb4edfd249390a7&mode=xml\";";
-		
+						"&appid=35ec794bb2d83a735fb4edfd249390a7&mode=xml";		
 		
 		System.out.println(URLtosend);
 		

@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-    <% import weatherbean %>
+    <%@ page import = "model.weatherbean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +13,12 @@
 
 <%
 
-String test = (weatherbean) request.getAttribute("wbean") ;
+weatherbean test = (weatherbean) request.getAttribute("wbean") ;
 
 
-out.print(test);
+out.print("The weather " + test.getCityStr() + " is now a " + test.getClouds());
 
 %>
-
-
-
-<a href = "apiservlet">
-Get me another joke
-</a>
 
 </body>
 </html>

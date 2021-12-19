@@ -1,0 +1,30 @@
+Krav
+- MVC ska användas korrekt
+- Blanda JSPs, Servlets, Beans och andra java klasser.
+- CSS. Bootstrap
+- Visa minst 5 tidigare vädersökning med hjälp av cookies
+- Variabler, metoder och klasser skall vara namngivna logiskt och ni ska kommentera ert kod väl.
+- Använd Cookies på något mer vis i projektet än tidigar sökningar --> Skapa förfrågan för era användare om det är ok att spara Cookies på deras klienter.
+
+- Redovisning onsdagen den 22, med 15 minuter per elev.
+- En rapport: En 300(min) ords rapport som beskriver er progress med dokumentation hur er webbapplikation funkar med bilder varje sida hur det ser ut. 
+- Lämna in som PDF format!
+
+
+
+
+API
+- Firebase databas
+- Google map API
+- Trafiklab -> egen app fÃ¶r skÃ¥netrafiken tex
+- Twitter
+- Twitch botar
+- Googla free API
+
+
+
+vÃ¤der API
+openweather --> skapa konto och nyckel
+
+api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}&mode=xml
+api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}

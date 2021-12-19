@@ -32,8 +32,8 @@ public class apiservlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String cityStr = "malmö";
-		String countryStr = "sweden";
+		String cityStr = request.getParameter("city");
+		String countryStr = request.getParameter("country");
 		
 		weatherbean wb = new weatherbean(cityStr, countryStr);
 		
