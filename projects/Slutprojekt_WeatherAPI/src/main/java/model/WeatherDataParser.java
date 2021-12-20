@@ -58,7 +58,7 @@ public class WeatherDataParser {
 		System.out.println(doc.getDocumentElement().getNodeName());//@CT? print first node in the XML document
 		
 		
-		NodeList nList = doc.getElementsByTagName("clouds");
+		NodeList nList = doc.getElementsByTagName("temperature");
 		
 		String returnValue = "";
 		
@@ -69,11 +69,13 @@ public class WeatherDataParser {
 			if (node.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) node;
 				
-				String XMLclouds = eElement.getAttribute("value");
+				String K_Temp = eElement.getAttribute("value");
+				double dtemp = Double.parseDouble(K_Temp) - 272;
+				String C_Temp = String.valueOf((int) dtemp); 
 				
-				wb.setClouds(XMLclouds);
+				wb.setTemperature(C_Temp);
 				
-				System.out.println(XMLclouds);
+				//System.out.println(C_Temp);
 				
 				
 				

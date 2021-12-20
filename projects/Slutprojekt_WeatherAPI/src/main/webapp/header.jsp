@@ -8,7 +8,7 @@
 </head>
 <body>
 
-            <h1>This is the header in my ultimate weather fetcher</h1>
+            <h1>This is the header in my temperature app</h1>
 
 </body>
 </html>

@@ -4,7 +4,7 @@ public class weatherbean {
 	
 	private String cityStr;
 	private String countryStr;
-	private String clouds;
+	private String temperature;
 	
 	
 	public weatherbean(String cityStr, String countryStr) {
@@ -25,11 +25,13 @@ public class weatherbean {
 		this.countryStr = countryStr;
 	}
 	
-	public String getClouds() {
-		return clouds;
+	public String getTemperature() {
+		return temperature;
 	}
-	public void setClouds(String clouds) {
-		this.clouds = clouds;
+	
+	public void setTemperature(String temp) {
+		temperature = temp;
+		
 	}
 	
 	

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<footer>This is the footer in my ultimate weather fetcher</footer>
+<footer>This is the footer in my temperature app</footer>
 
 </body>
 </html>

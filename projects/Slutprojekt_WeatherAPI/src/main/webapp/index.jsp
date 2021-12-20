@@ -16,8 +16,7 @@
 	<div class="search-location-index">
 		<%@ include file="WEB-INF/weatherForm.html"%>
 	</div>
-
-
+	
 	<footer>
 		<%@ include file="footer.jsp"%>
 	</footer>

@@ -2,15 +2,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="../css/style.css">
 <title>Insert title here</title>
 </head>
 <body>
 
-<form action="OpenWeatherServlet" method="get">
-			City:<input type="text" name="city"> <br> Country
-			(Language code):<input type="text" name="country" /> <br> <input
-				type="submit" value="GET WEATHER">
+<div class="weatherform">
+	<form action="OpenWeatherServlet" method="get" >
+			City:<input type="text" name="city" class="input-background"> <br><br> 
+			Country:<input type="text" name="country" class="input-background" /> <br><br> 
+			<input type="submit" value="  GO  "  class="input-background">
 		</form>
+</div>
+
+
 
 </body>
 </html>

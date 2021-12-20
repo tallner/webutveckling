@@ -6,6 +6,30 @@
 
 }
 
+.input-background{
+	color: white;
+	background-color: rgb(50, 130, 210);
+	border: rgb(60, 140, 220) 0.5px solid; 
+}
+
+.weatherform{
+/* 	border: red 0.5px solid;  */
+	color: white;
+	display: flex;
+	
+	padding:20px;
+	
+	flex-flow: row nowrap;
+    justify-content: flex-start;
+
+	align-items: flex-start;
+}
+.text-class{
+	font-family: fantasy;
+	font-size: 30px;
+	
+}
+
 html,header,footer,.links,.select-city { 
   background: url(../img/1862332.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -52,6 +76,8 @@ header{
 
 .search-location{
 /* 	filter: blur(5px); */
+	color:white;
+	font-size:20px;
 	background: url(../img/1862332.jpg);
 	background-size: cover;
 /* 	border: red 2px solid; */
@@ -59,10 +85,10 @@ header{
     grid-column: 2/3;
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
 
-/*     align-items: center;     */
+    align-items: center;
 }
 
 
