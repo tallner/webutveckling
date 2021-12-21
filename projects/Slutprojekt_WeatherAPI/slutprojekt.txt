@@ -11,6 +11,12 @@ Krav
 - Lämna in som PDF format!
 
 
+Issues
+- Sökning på åöä fungerar ej. UTF-8, och connection parameter i servern
+- Cookies-kod utspridd. Bör samlas, dubbel kode i nuläget, kanske gör en lista i api-servlet som skickar ut listan istället för att hantera i usersidan
+- En cookiecreator och inte på olika ställe?
+- Form som lades i egen html file blev inte så bra? Eller ska man kanske lägga footer och header likadant?
+
 
 Extra
 - Responsive
