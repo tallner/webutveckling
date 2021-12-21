@@ -33,6 +33,12 @@ public class weatherbean {
 		temperature = temp;
 		
 	}
+
+
+	@Override
+	public String toString() {
+		return "weatherbean [cityStr=" + cityStr + ", countryStr=" + countryStr + ", temperature=" + temperature + "]";
+	}
 	
 	
 	

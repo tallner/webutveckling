@@ -1,19 +1,19 @@
 <%@page import="model.weatherbean"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <%@ page import="model.weatherbean"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="css/style.css">
 <title>Weather</title>
 </head>
 <body>
 
 	<%
-		weatherbean test = (weatherbean) request.getAttribute("wbean");
+	weatherbean test = (weatherbean) request.getAttribute("wbean");
 	%>
 
 	<header>
@@ -22,27 +22,36 @@
 
 	<div class="search-location">
 		<%@ include file="WEB-INF/weatherForm.html"%>
-		
+
 		<div class="text-class">
-				<%out.print(test.getCityStr().toUpperCase() + " " + test.getTemperature()+ "°C");%>
+			<%
+			System.out.println(test.getCityStr());
+			out.print(test.getCityStr().toUpperCase() + " " + test.getTemperature() + "Â°C");
+			%>
+
 		</div>
 
 	</div>
 
 	<div class="last-locations">
 
-		<ul>
-			<li>Temp1</li>
-			<br>
-			<li><a href=""> Temp2 </a></li>
-			<br>
-			<li><a href=""> Temp3 </a></li>
-			<br>
-			<li><a href=""> Temp4 </a></li>
-			<br>
-			<li><a href=""> Temp5 </a></li>
-			<br>
-		</ul>
+		<%
+			out.print("<ol>");
+			try {
+				Cookie ck[] = request.getCookies();
+				if (ck[0].getName().isEmpty() == false) {
+					for (int i = 0; i < request.getCookies().length; i++) {
+						if ((!ck[i].getName().equals("JSESSIONID"))&&(!ck[i].getName().equals("cookiesaccepted")))
+							out.print("<li>" + ck[i].getName() + " " + ck[i].getValue() + "</li>");
+					}
+				}
+	
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+			out.print("</ol>");
+		%>
+
 	</div>
 
 	<footer>
