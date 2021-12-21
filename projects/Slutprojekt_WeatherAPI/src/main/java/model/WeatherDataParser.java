@@ -25,7 +25,7 @@ public class WeatherDataParser {
 						wb.getCityStr() + ","+ wb.getCountryStr() +
 						"&appid=35ec794bb2d83a735fb4edfd249390a7&mode=xml";		
 		
-		System.out.println(URLtosend);
+//		System.out.println(URLtosend);
 		
 		URL line_api_url = new URL(URLtosend);
 		
@@ -55,7 +55,7 @@ public class WeatherDataParser {
 		
 		doc.getDocumentElement().normalize(); //@CT?
 		
-		System.out.println(doc.getDocumentElement().getNodeName());//@CT? print first node in the XML document
+//		System.out.println(doc.getDocumentElement().getNodeName());//@CT? print first node in the XML document
 		
 		
 		NodeList nList = doc.getElementsByTagName("temperature");

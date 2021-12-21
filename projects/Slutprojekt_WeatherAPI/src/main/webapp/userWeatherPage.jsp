@@ -32,7 +32,7 @@
 	<div class="last-locations">
 
 		<ul>
-			<li><a href=""> Temp1 </a></li>
+			<li>Temp1</li>
 			<br>
 			<li><a href=""> Temp2 </a></li>
 			<br>
