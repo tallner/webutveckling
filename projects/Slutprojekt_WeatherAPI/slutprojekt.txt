@@ -19,7 +19,7 @@ Issues
 - Nästlad kod brinner i ögonen
 - Form som lades i egen html file blev inte så bra? Eller ska man kanske lägga footer och header likadant?
 - Gör ingen sökning med cookies, sparar värdet i min cookie
-- Ärvs CSS i inkluderade JSP filer?
+x- Ärvs CSS i inkluderade JSP filer?
 
 
 -> Cookies ska användas för att söka igen, dvs spara inte värdet, utan bara stad+land och sen sök och visa

@@ -34,13 +34,10 @@ public class OpenWeatherServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
 		String cityStr = request.getParameter("city");
 		String countryStr = request.getParameter("country");
 		weatherbean wb = new weatherbean(cityStr, countryStr);
 //		ArrayList<weatherbean> wb = new ArrayList<weatherbean>();
-		
-//		System.out.println(cityStr+" in "+countryStr + wb);
 
 		WeatherDataParser.getWeather(wb);
 
