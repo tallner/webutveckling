@@ -13,9 +13,26 @@ Krav
 
 Issues
 - Sökning på åöä fungerar ej. UTF-8, och connection parameter i servern
+- Dubbla namn fungerar inte
 - Cookies-kod utspridd. Bör samlas, dubbel kode i nuläget, kanske gör en lista i api-servlet som skickar ut listan istället för att hantera i usersidan
 - En cookiecreator och inte på olika ställe?
+- Nästlad kod brinner i ögonen
 - Form som lades i egen html file blev inte så bra? Eller ska man kanske lägga footer och header likadant?
+- Gör ingen sökning med cookies, sparar värdet i min cookie
+- Ärvs CSS i inkluderade JSP filer?
+
+
+-> Cookies ska användas för att söka igen, dvs spara inte värdet, utan bara stad+land och sen sök och visa
+-> Plocka ut 3 värden från API
+-> Strukturera om så att index går två håll, dvs antingen söker via cookies eller form
+-> Include behöver in metadata i början av filen
+
+
+
+
+
+
+
 
 
 Extra

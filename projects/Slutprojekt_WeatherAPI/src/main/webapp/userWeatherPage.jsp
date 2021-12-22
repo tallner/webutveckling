@@ -13,7 +13,7 @@
 <body>
 
 	<%
-	weatherbean test = (weatherbean) request.getAttribute("wbean");
+	weatherbean wb = (weatherbean) request.getAttribute("wbean");
 	%>
 
 	<header>
@@ -25,8 +25,8 @@
 
 		<div class="text-class">
 			<%
-			System.out.println(test.getCityStr());
-			out.print(test.getCityStr().toUpperCase() + " " + test.getTemperature() + "°C");
+			System.out.println(wb.getCityStr());
+			out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C");
 			%>
 
 		</div>
