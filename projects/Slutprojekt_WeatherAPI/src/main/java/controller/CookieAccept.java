@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.WeatherDataParser;
+import model.weatherbean;
+
 /**
  * Servlet implementation class cookieCreator
  */
@@ -67,6 +70,27 @@ public class CookieAccept extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println("Error: " + e);
 		}
+	}
+	
+	public static boolean cookiesAccepted(Cookie ck[], int nrCookies) {
+		
+
+		//check if acceptcookie is created
+		boolean cookiesAccepted = false;
+		try {
+			if (ck[0].getName().isEmpty()==false){
+				for(int i = 0 ; i < nrCookies ; i++){
+					if (ck[i].getName().equals("cookiesaccepted"))
+						cookiesAccepted = ck[i].getValue().equals("yes");
+				}
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return cookiesAccepted;
+		
 	}
 
 }

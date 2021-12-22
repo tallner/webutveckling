@@ -12,13 +12,9 @@
 </head>
 <body>
 
-	<%
-	weatherbean wb = (weatherbean) request.getAttribute("wbean");
-	%>
+	<%weatherbean wb = (weatherbean) request.getAttribute("wbean");%>
 
-	<header>
-		<%@ include file="header.jsp"%>
-	</header>
+	<header><%@ include file="header.jsp"%></header>
 
 	<div class="search-location">
 		<%@ include file="WEB-INF/weatherForm.html"%>
@@ -54,9 +50,7 @@
 
 	</div>
 
-	<footer>
-		<%@ include file="footer.jsp"%>
-	</footer>
+	<footer><%@ include file="footer.jsp"%></footer>
 
 </body>
 </html>

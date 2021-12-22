@@ -40,32 +40,21 @@ public class OpenWeatherServlet extends HttpServlet {
 		weatherbean wb = new weatherbean(cityStr, countryStr);
 //		ArrayList<weatherbean> wb = new ArrayList<weatherbean>();
 		
-		System.out.println(cityStr+" in "+countryStr + wb);
+//		System.out.println(cityStr+" in "+countryStr + wb);
 
 		WeatherDataParser.getWeather(wb);
 
-		//check if acceptcookie is created
-		String cookiesAccepted = "no";
-		try {
-			Cookie ck[] = request.getCookies();
-			if (ck[0].getName().isEmpty()==false){
-				for(int i = 0 ; i < request.getCookies().length ; i++){
-					if (ck[i].getName().equals("cookiesaccepted"))
-						cookiesAccepted = ck[i].getValue();
-				}
-			}
-			
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		//check if cookies are accepted
+		boolean cookiesAccepted = false;
+		if (request.getCookies() != null)
+			cookiesAccepted = CookieAccept.cookiesAccepted(request.getCookies(), request.getCookies().length);			
 		
-		// check if cookies are accepted
-		if (cookiesAccepted.equals("yes")) {
-				Cookie ck = new Cookie(countryStr+"_"+cityStr, wb.getTemperature());// creating cookie object				
+		// if cookies are accepted, then create a cookie
+		if (cookiesAccepted) {
+				Cookie ck = new Cookie(cityStr, countryStr);// creating cookie object				
 				ck.setMaxAge(3600); // set how long the cookie lasts, seconds
 				response.addCookie(ck);// adding cookie in the response
 		}
-		
 		
 		request.setAttribute("wbean", wb);
 
