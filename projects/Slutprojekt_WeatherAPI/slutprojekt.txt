@@ -20,6 +20,7 @@ Issues
 - Form som lades i egen html file blev inte så bra? Eller ska man kanske lägga footer och header likadant?
 - Gör ingen sökning med cookies, sparar värdet i min cookie
 x- Ärvs CSS i inkluderade JSP filer?
+- kolla så att det är relevanta cookies som finns när en cookiesearch initieras
 
 
 -> Cookies ska användas för att söka igen, dvs spara inte värdet, utan bara stad+land och sen sök och visa
