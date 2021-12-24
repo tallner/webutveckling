@@ -14,13 +14,14 @@ Krav
 Issues
 - Sökning på åöä fungerar ej. UTF-8, och connection parameter i servern
 - Dubbla namn fungerar inte
-- Cookies-kod utspridd. Bör samlas, dubbel kode i nuläget, kanske gör en lista i api-servlet som skickar ut listan istället för att hantera i usersidan
-- En cookiecreator och inte på olika ställe?
-- Nästlad kod brinner i ögonen
+x- Cookies-kod utspridd. Bör samlas, dubbel kode i nuläget, kanske gör en lista i api-servlet som skickar ut listan istället för att hantera i usersidan
+x- En cookiecreator och inte på olika ställe?
+-> Nästlad kod brinner i ögonen, inte Java style
 - Form som lades i egen html file blev inte så bra? Eller ska man kanske lägga footer och header likadant?
-- Gör ingen sökning med cookies, sparar värdet i min cookie
+x- Gör ingen sökning med cookies, sparar värdet i min cookie
 x- Ärvs CSS i inkluderade JSP filer?
-- kolla så att det är relevanta cookies som finns när en cookiesearch initieras
+x- kolla så att det är relevanta cookies som finns när en cookiesearch initieras
+-> Skriva ut en UL från JSP får jag enbart i svart, kan man ändra från CSS?
 
 
 -> Cookies ska användas för att söka igen, dvs spara inte värdet, utan bara stad+land och sen sök och visa

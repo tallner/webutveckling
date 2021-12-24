@@ -1,8 +1,7 @@
 <%@page import="model.weatherbean"%>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ page import="model.weatherbean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,45 +11,45 @@
 </head>
 <body>
 
-	<%weatherbean wb = (weatherbean) request.getAttribute("wbean");%>
-
 	<header><%@ include file="header.jsp"%></header>
+	<footer><%@ include file="footer.jsp"%></footer>
 
 	<div class="search-location">
-		<%@ include file="WEB-INF/weatherForm.html"%>
+		<%// @ include file="WEB-INF/weatherForm.html"%>
+		<form action="CookieSearch" method="get" >
+			City:<input type="text" name="city" class="input-background"> <br><br> 
+			Country:<input type="text" name="country" class="input-background" /> <br><br> 
+			<input type="submit" value="  GO  "  class="input-background">
+		</form>
 
 		<div class="text-class">
 			<%
-			System.out.println(wb.getCityStr());
-			out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C");
+			weatherbean wb = (weatherbean) request.getAttribute("wbean");
+			if (wb!=null)
+				out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C");
 			%>
-
 		</div>
-
 	</div>
 
-	<div class="last-locations">
 
+	<div class="last-locations">
 		<%
-			out.print("<ol>");
+			@SuppressWarnings("unchecked") //Is this OK?
+			ArrayList<weatherbean> cb = (ArrayList<weatherbean>) request.getAttribute("cbean");
+		
+			out.print("<ul style=\"color:white\">"); //can I do in CSS?
 			try {
-				Cookie ck[] = request.getCookies();
-				if (ck[0].getName().isEmpty() == false) {
-					for (int i = 0; i < request.getCookies().length; i++) {
-						if ((!ck[i].getName().equals("JSESSIONID"))&&(!ck[i].getName().equals("cookiesaccepted")))
-							out.print("<li>" + ck[i].getName() + " " + ck[i].getValue() + "</li>");
-					}
+				for (int i = 0; i < cb.size(); i++) {
+					out.print("<li>" + cb.get(i) + "</li>");
 				}
-	
 			} catch (Exception e) {
 				System.out.println(e);
 			}
-			out.print("</ol>");
+			out.print("</ul>");
 		%>
-
 	</div>
 
-	<footer><%@ include file="footer.jsp"%></footer>
+	
 
 </body>
 </html>

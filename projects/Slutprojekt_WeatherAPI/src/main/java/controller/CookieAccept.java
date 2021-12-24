@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Optional;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -48,22 +49,26 @@ public class CookieAccept extends HttpServlet {
 
 			String n = request.getParameter("acceptcookies");
 			Cookie ck = new Cookie("cookiesaccepted", n);// creating cookie object
-						
-			ck.setMaxAge(3600); // set how long the cookie lasts, seconds
-			response.addCookie(ck);// adding cookie in the response
+			String nextPage = "";
+			
 			
 			if (n.equals("no")){
 				Cookie removeCookies[] = request.getCookies();
-				System.out.println("remove");
+				nextPage = "index.jsp";
 				for(int i = 0 ; i < request.getCookies().length ; i++){
 					removeCookies[i].setMaxAge(0);
 					response.addCookie(removeCookies[i]);// adding cookie in the response
 				}
+			}else {
+				ck.setMaxAge(3600); // set how long the cookie lasts, seconds
+				response.addCookie(ck);// adding cookie in the response
+				nextPage = "userWeatherPage.jsp";
 			}
 			
 			//send back the page where the cookiesetting was made
-			String referer = request.getHeader("Referer");
-			response.sendRedirect(referer);
+			//String referer = request.getHeader("Referer");
+			//response.sendRedirect(referer);
+			response.sendRedirect(nextPage);
 			
 
 

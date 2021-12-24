@@ -37,25 +37,22 @@ public class OpenWeatherServlet extends HttpServlet {
 		String cityStr = request.getParameter("city");
 		String countryStr = request.getParameter("country");
 		weatherbean wb = new weatherbean(cityStr, countryStr);
-//		ArrayList<weatherbean> wb = new ArrayList<weatherbean>();
 
 		WeatherDataParser.getWeather(wb);
 
-		//check if cookies are accepted
-		boolean cookiesAccepted = false;
-		if (request.getCookies() != null)
-			cookiesAccepted = CookieAccept.cookiesAccepted(request.getCookies(), request.getCookies().length);			
-		
-		// if cookies are accepted, then create a cookie
-		if (cookiesAccepted) {
+		//check if cookies are accepted then create a cookie
+		if ((request.getCookies() != null)&&
+			(CookieAccept.cookiesAccepted(request.getCookies(), request.getCookies().length)))
+			{
 				Cookie ck = new Cookie(cityStr, countryStr);// creating cookie object				
 				ck.setMaxAge(3600); // set how long the cookie lasts, seconds
 				response.addCookie(ck);// adding cookie in the response
-		}
+			}
+		
 		
 		request.setAttribute("wbean", wb);
 
-		RequestDispatcher rd = request.getRequestDispatcher("userWeatherPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}
 
