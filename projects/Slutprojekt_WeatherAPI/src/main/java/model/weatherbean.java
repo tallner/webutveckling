@@ -5,6 +5,8 @@ public class weatherbean {
 	private String cityStr;
 	private String countryStr;
 	private String temperature;
+	private String clouds;
+	private String DateTime;
 	
 	
 	public weatherbean(String cityStr, String countryStr) {
@@ -33,11 +35,29 @@ public class weatherbean {
 		temperature = temp;
 		
 	}
+	
+	public String getClouds() {
+		return clouds;
+	}
+	
+	public void setClouds(String clouds) {
+		this.clouds = clouds;
+		
+	}
+	
+	public String getDateTime() {
+		return DateTime;
+	}
+	
+	public void setDateTime(String time) {
+		this.DateTime = time;
+		
+	}
 
 
 	@Override
 	public String toString() {
-		return cityStr +", "+ countryStr + " Temp=" + temperature+"°C";
+		return cityStr +", "+ countryStr + " Temp=" + temperature+"°C" + " Clouds=" + clouds + " DT=" + DateTime;
 	}
 	
 	

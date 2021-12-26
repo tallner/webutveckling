@@ -25,7 +25,7 @@ public class WeatherDataParser {
 						wb.getCityStr() + ","+ wb.getCountryStr() +
 						"&appid=35ec794bb2d83a735fb4edfd249390a7&mode=xml";		
 		
-	//	System.out.println(URLtosend);
+		System.out.println(URLtosend);
 		
 		URL line_api_url = new URL(URLtosend);
 		
@@ -54,9 +54,7 @@ public class WeatherDataParser {
 		Document doc = convertStringToXMLDocument(Apiresponse);		
 		
 		doc.getDocumentElement().normalize(); //@CT?
-		
-//		System.out.println(doc.getDocumentElement().getNodeName());//@CT? print first node in the XML document
-		
+				
 		
 		NodeList nList = doc.getElementsByTagName("temperature");
 		
@@ -75,12 +73,41 @@ public class WeatherDataParser {
 				
 				wb.setTemperature(C_Temp);
 				
-				//System.out.println(C_Temp);
+			}
+		}
+		
+		nList = doc.getElementsByTagName("clouds");
+		
+		for (int i=0; i < nList.getLength() ; i++) {
+			
+			Node node = nList.item(i);
+			
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element eElement = (Element) node;
 				
-				
+				String Clouds = eElement.getAttribute("value");
+				wb.setClouds(Clouds);
 				
 			}
 		}
+		
+		nList = doc.getElementsByTagName("lastupdate");
+		
+		for (int i=0; i < nList.getLength() ; i++) {
+			
+			Node node = nList.item(i);
+			
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element eElement = (Element) node;
+				
+				String dt = eElement.getAttribute("value");
+				wb.setDateTime(dt);
+				
+			}
+		}
+		
+		
+		
 		return returnValue;
 		
 		

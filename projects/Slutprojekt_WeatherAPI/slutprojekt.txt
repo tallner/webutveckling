@@ -24,10 +24,10 @@ x- kolla så att det är relevanta cookies som finns när en cookiesearch initieras
 -> Skriva ut en UL från JSP får jag enbart i svart, kan man ändra från CSS?
 
 
--> Cookies ska användas för att söka igen, dvs spara inte värdet, utan bara stad+land och sen sök och visa
--> Plocka ut 3 värden från API
--> Strukturera om så att index går två håll, dvs antingen söker via cookies eller form
--> Include behöver in metadata i början av filen
+x-> Cookies ska användas för att söka igen, dvs spara inte värdet, utan bara stad+land och sen sök och visa
+-> Plocka ut 3 värden från API, cloud, date, temp
+x-> Strukturera om så att index går två håll, dvs antingen söker via cookies eller form
+x-> Include behöver inte metadata i början av filen
 
 
 
