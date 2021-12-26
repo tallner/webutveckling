@@ -19,18 +19,21 @@
 	%>
 
 	<div class="search-location">
-		<%// @ include file="WEB-INF/weatherForm.html"%>
-		<form action="OpenWeatherServlet" method="get" >
-			City:<input type="text" name="city" class="input-background"> <br><br> 
-			Country:<input type="text" name="country" class="input-background" /> <br><br> 
-			<input type="submit" value="  GO  "  class="input-background">
-		</form>
+		<%@ include file="WEB-INF/weatherForm.html"%>
+<!-- 		<form action="OpenWeatherServlet" method="get" > -->
+<!-- 			City:<input type="text" name="city" class="input-background"> <br><br>  -->
+<!-- 			Country:<input type="text" name="country" class="input-background" /> <br><br>  -->
+<!-- 			<input type="submit" value="  GO  "  class="input-background"> -->
+<!-- 		</form> -->
 
 		<div class="text-class">
 			<%
 			weatherbean wb = (weatherbean) request.getAttribute("wbean");
 			if (wb!=null)
-				out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C");
+				out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C<br>");
+				out.print(wb.getClouds() + "% cloudiness<br>");
+				out.print(wb.getDateTime());
+				
 			%>
 		</div>
 	</div>
