@@ -42,9 +42,11 @@ public class CookieSearch extends HttpServlet {
 			int parser_iterator = 0;
 
 			for (int i = 0; i < cookie_iterator; i++) {
+				//System.out.println(ck[i].getName());
 				if ((!ck[i].getName().equals("JSESSIONID"))&&(!ck[i].getName().equals("cookiesaccepted"))) {
 					wb.add(new weatherbean(ck[i].getName(), ck[i].getValue()));
 					WeatherDataParser.getWeather(wb.get(parser_iterator++));
+					
 				}
 			}
 		
