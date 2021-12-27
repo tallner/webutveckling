@@ -29,11 +29,11 @@
 		<div class="text-class">
 			<%
 			weatherbean wb = (weatherbean) request.getAttribute("wbean");
-			if (wb!=null)
+			if (wb!=null){
 				out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C<br>");
 				out.print(wb.getClouds() + "% cloudiness<br>");
 				out.print(wb.getDateTime());
-				
+			}
 			%>
 		</div>
 	</div>
