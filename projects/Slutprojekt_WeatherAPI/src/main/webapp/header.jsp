@@ -1,1 +1,1 @@
-<h1>This is the header in my weather app</h1>
+<h1>My weather app</h1>
