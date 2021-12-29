@@ -18,27 +18,33 @@ import org.xml.sax.InputSource;
 
 public class WeatherDataParser {
 	
-	public static String getWeather(weatherbean wb) throws IOException{
+	public static String getWeather(WeatherBean wb) throws IOException{
 		
+		//concatenate the api search string
 		String URLtosend = 
 						"https://api.openweathermap.org/data/2.5/weather?q="+ 
 						wb.getCityStr() + ","+ wb.getCountryStr() +
-						"&appid=35ec794bb2d83a735fb4edfd249390a7&mode=xml";		
+						"&appid=35ec794bb2d83a735fb4edfd249390a7&mode=xml";
 		
-		System.out.println(URLtosend);
+//		System.out.println(URLtosend);
 		
+		//create a URL with the search string
 		URL line_api_url = new URL(URLtosend);
 		
-		
+		//setup and open the HTTP connection with the above URL
 		HttpURLConnection linec = (HttpURLConnection) line_api_url.openConnection();
 		
+		//use the connection for both in and output
 		linec.setDoInput(true);
 		linec.setDoOutput(true);
 		
+		//use the GET request for the API call
 		linec.setRequestMethod("GET");
 		
+		//Set up a buffer reader to read the input stream from the connection
 		BufferedReader in = new BufferedReader(new InputStreamReader(linec.getInputStream()));
 		
+		//build the response from the api in a string
 		String inputline;
 		
 		String Apiresponse = "";
@@ -50,12 +56,13 @@ public class WeatherDataParser {
 		
 		in.close();
 		
-//		System.out.println(Apiresponse);
+		//convert the string to XML document
 		Document doc = convertStringToXMLDocument(Apiresponse);		
 		
 		doc.getDocumentElement().normalize(); //@CT?
 				
 		
+		//extract the temperature from the request
 		NodeList nList = doc.getElementsByTagName("temperature");
 		
 		String returnValue = "";
@@ -76,6 +83,7 @@ public class WeatherDataParser {
 			}
 		}
 		
+		//extract the cloudiness from the request		
 		nList = doc.getElementsByTagName("clouds");
 		
 		for (int i=0; i < nList.getLength() ; i++) {
@@ -91,6 +99,7 @@ public class WeatherDataParser {
 			}
 		}
 		
+		//extract the last updated time and date from the request		
 		nList = doc.getElementsByTagName("lastupdate");
 		
 		for (int i=0; i < nList.getLength() ; i++) {

@@ -1,6 +1,6 @@
 package model;
 
-public class weatherbean {
+public class WeatherBean {
 	
 	private String cityStr;
 	private String countryStr;
@@ -9,7 +9,7 @@ public class weatherbean {
 	private String DateTime;
 	
 	
-	public weatherbean(String cityStr, String countryStr) {
+	public WeatherBean(String cityStr, String countryStr) {
 		
 		this.cityStr = cityStr;
 		this.countryStr = countryStr;
@@ -57,7 +57,7 @@ public class weatherbean {
 
 	@Override
 	public String toString() {
-		return cityStr +", "+ countryStr + " Temp=" + temperature+"°C" + " Clouds=" + clouds + " DT=" + DateTime;
+		return cityStr.toUpperCase() +", "+ countryStr.toUpperCase() + "<br>" + " Temp=" + temperature+"°C" + " Clouds=" + clouds + "%" + " DT=" + DateTime;
 	}
 	
 	

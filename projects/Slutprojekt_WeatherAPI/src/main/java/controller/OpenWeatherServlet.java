@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.WeatherDataParser;
-import model.weatherbean;
+import model.WeatherBean;
 
 /**
  * Servlet implementation class apiservlet
@@ -36,7 +36,7 @@ public class OpenWeatherServlet extends HttpServlet {
 
 		String cityStr = request.getParameter("city");
 		String countryStr = request.getParameter("country");
-		weatherbean wb = new weatherbean(cityStr, countryStr);
+		WeatherBean wb = new WeatherBean(cityStr, countryStr);
 
 		WeatherDataParser.getWeather(wb);
 

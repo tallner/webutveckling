@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.WeatherDataParser;
-import model.weatherbean;
+import model.WeatherBean;
 
 /**
  * Servlet implementation class cookieCreator
@@ -51,12 +51,13 @@ public class CookieAccept extends HttpServlet {
 			Cookie ck = new Cookie("cookiesaccepted", n);// creating cookie object
 			String nextPage = "";
 			
-			
+			//check if the user selected yes or no for cookies
+			//if no, delete all cookies and go to index
 			if (n.equals("no")){
 				Cookie removeCookies[] = request.getCookies();
 				nextPage = "index.jsp";
 				for(int i = 0 ; i < request.getCookies().length ; i++){
-					removeCookies[i].setMaxAge(0);
+					removeCookies[i].setMaxAge(0); //remove cookie by setting 0 seconds in its age
 					response.addCookie(removeCookies[i]);// adding cookie in the response
 				}
 			}else {

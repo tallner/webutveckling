@@ -1,8 +1,7 @@
-<%@page import="org.eclipse.jdt.internal.compiler.ast.ForStatement"%>
-<%@page import="model.weatherbean"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@page import="controller.CookieAccept"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="controller.CookieAccept"%> 
+<%@ page import="model.WeatherBean"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +11,11 @@
 </head>
 <body>
 
+<!-- This is the first page of the app. -->
+<!-- If you are not using cookies you will stay here and  -->
+<!-- only see the temperature for your search -->
+
+<!-- 	Include header and footer -->
 	<header><%@ include file="header.jsp"%></header>
 	<footer><%@ include file="footer.jsp"%></footer>
 
@@ -20,9 +24,9 @@
 		<%@ include file="WEB-INF/weatherForm.html"%>
 		<div class="text-class">
 			<%
-			weatherbean wb = (weatherbean) request.getAttribute("wbean");
-			if (wb!=null)
-				out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C");
+				WeatherBean wb = (WeatherBean) request.getAttribute("wbean");
+				if (wb!=null)
+					out.print(wb.getCityStr().toUpperCase() + " " + wb.getTemperature() + "°C");
 			%>
 		</div>
 	</div>

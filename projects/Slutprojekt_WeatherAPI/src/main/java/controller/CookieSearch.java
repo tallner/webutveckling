@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.WeatherDataParser;
-import model.weatherbean;
+import model.WeatherBean;
 
 /**
  * Servlet implementation class CookieSearch
@@ -33,7 +33,7 @@ public class CookieSearch extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<weatherbean> wb = new ArrayList<weatherbean>();
+		ArrayList<WeatherBean> wb = new ArrayList<WeatherBean>();
 		
 		//get all cookies and search with API
 		try {
@@ -42,9 +42,9 @@ public class CookieSearch extends HttpServlet {
 			int parser_iterator = 0;
 
 			for (int i = 0; i < cookie_iterator; i++) {
-				//System.out.println(ck[i].getName());
+				//Do not use cookies for the sessionid and the acceptance cookie when passing to the API
 				if ((!ck[i].getName().equals("JSESSIONID"))&&(!ck[i].getName().equals("cookiesaccepted"))) {
-					wb.add(new weatherbean(ck[i].getName(), ck[i].getValue()));
+					wb.add(new WeatherBean(ck[i].getName(), ck[i].getValue()));
 					WeatherDataParser.getWeather(wb.get(parser_iterator++));
 					
 				}
@@ -57,7 +57,7 @@ public class CookieSearch extends HttpServlet {
 				
 		request.setAttribute("cbean", wb);
 
-		RequestDispatcher rd = request.getRequestDispatcher("userWeatherPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("cookieWeatherPage.jsp");
 		rd.forward(request, response);
 	}
 
